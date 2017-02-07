@@ -28,7 +28,7 @@ open class Store<State: StateType>: StoreType {
             subscriptions.forEach {
                 // if a selector is available, subselect the relevant state
                 // otherwise pass the entire state to the subscriber
-                $0.subscriber?._newState(state: $0.selector?(state) ?? state)
+                $0.subscriber?._newState(state: $0.selector?(state) ?? state!)
             }
         }
     }
